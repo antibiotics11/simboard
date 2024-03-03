@@ -1,0 +1,27 @@
+<div class="member-box">
+  <h2 class="member-box-title"> 프로필 정보 </h2>
+  <input id="member-profile-email" class="member-box-email"
+         type="text" name="email" minlength="4" maxlength="300"
+         value="${user_email}" disabled
+  />
+  <br /><br />
+  <input id="member-profile-password" class="member-box-password"
+         type="text" name="name" minlength="4" maxlength="64"
+         value="${user_name}" disabled
+  />
+  <br /><br />
+  <input type="button" class="member-box-submit-btn-1" value="로그아웃" onclick="signout()" />
+  <input type="button" class="member-box-submit-btn-2" value="회원탈퇴" onclick="withdraw()" />
+
+  <script type="text/javascript">
+    function signout() {
+      if (confirm("로그아웃하시겠습니까?")) {
+        window.location.href = "/signout";
+      }
+    }
+    function withdraw() {
+      if (confirm("탈퇴시 모든 정보가 삭제됩니다.\r\n탈퇴하시겠습니까?"))
+      window.location.href = "/withdraw";
+    }
+  </script>
+</div>

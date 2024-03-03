@@ -1,0 +1,27 @@
+/**
+ * Nanum Gothic - https://fonts.google.com/specimen/Nanum+Gothic?query=Nanum&subset=korean
+ */
+@font-face {
+  font-family: "NanumGothic";
+  src:
+    url("/static/font/Nanum_Gothic/NanumGothic-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NanumGothic-Bold";
+  src:
+    url("/static/font/Nanum_Gothic/NanumGothic-Bold.ttf") format("truetype");
+}
+
+/**
+ * Nanum Gothic Coding - https://fonts.google.com/specimen/Nanum+Gothic+Coding/about?query=Nanum&subset=korean&noto.script=Kore
+ */
+@font-face {
+  font-family: "NanumGothicCoding";
+  src:
+    url("/static/font/Nanum_Gothic_Coding/NanumGothicCoding-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NanumGothicCoding-Bold";
+  src:
+    url("/static/font/Nanum_Gothic_Coding/NanumGothicCoding-Bold.ttf") format("truetype");
+}

@@ -1,0 +1,5 @@
+.idea
+simboard/ext
+simboard/compile.log
+simboard/compile-errors.log
+simboard/.zephir

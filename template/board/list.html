@@ -1,0 +1,46 @@
+<div class="board-all-list">
+  <div class="board-active-list">
+    <div class="board-list-title" >
+      열린 대화방
+      (<span style="color:#0969da;">${active_boards_count}</span>)
+      &nbsp;&nbsp;
+      <span id="board-list-open-title" class="board-list-open-title"
+            onclick="displayOpenForm()" style="display:${display_open_form}"
+      >새 대화방 만들기</span>
+      <span id="board-list-open-form" style="display:none;">
+        <form method="POST" action="/open" style="display:inline">
+          <input class="board-list-open-box"
+                 name="title" type="text" minlength="4" maxlength="50"
+                 placeholder="대화방 제목을 입력하세요..." required
+          />
+          <input type="submit" class="board-list-open-title" value="확인" />
+          <input type="button" class="board-list-open-title" onclick="displayOpenForm(false)" value="취소" />
+        </form>
+      </span>
+      <script type="text/javascript">
+        function displayOpenForm(display = true) {
+          document.getElementById("board-list-open-title").style.display = display ? "none" : "inline";
+          document.getElementById("board-list-open-form").style.display = display ? "inline" : "none";
+        }
+      </script>
+    </div>
+    <br />
+    <div class="board-list">
+      <div class="board-list-elements">
+        <table>${active_boards}</table>
+      </div>
+    </div>
+  </div>
+  <div class="board-closed-list">
+    <div class="board-list-title">
+      닫힌 대화방
+      (<span style="color:grey;">${closed_boards_count}</span>)
+    </div>
+    <br />
+    <div class="board-list">
+      <div class="board-list-elements">
+        <table>${closed_boards}</table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,290 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: NanumGothic, sans-serif;
+}
+
+.header {
+  cursor: default;
+  width: 100%;
+  height: 4em;
+  background-color: #ffffff;
+  color: #dddddd;
+  padding-top: 0.5em;
+}
+
+.header-logo {
+  float: left;
+  margin-left: 2em;
+}
+
+.header-logo-icon {
+  position: relative;
+  top: 0.4em;
+  width: 2.5em;
+}
+
+.header-logo-title {
+  margin-left: 1em;
+}
+
+.header-logo-title-link {
+  font-size: 2.5em;
+  color: #282a35;
+  text-decoration: none;
+}
+
+.header-menu {
+  float: right;
+  margin-right: 2em;
+}
+
+.header-menu-search-box {
+  font-family: NanumGothic, sans-serif;
+  width: 20em;
+  padding: 0.5em 1em;
+  border: 0.2em solid #6c27b3;
+}
+
+.header-menu-search-box:focus {
+  outline: none;
+}
+
+.header-menu-search-icon {
+  position: relative;
+  font-family: NanumGothic, sans-serif;
+  right: 0.5em;
+  width: 5em;
+  padding: 0.5em 1em;
+  border: 0.2em solid #6c27b3;
+  background-color: #6c27b3;
+  color: white;
+}
+
+.header-menu-search-icon:hover {
+  cursor: pointer;
+}
+
+.header-menu-member {
+  position: relative;
+  top: 0.8em;
+  cursor: pointer;
+}
+
+.header-menu-member-icon {
+  width: 2.2em;
+}
+
+.content-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.member-box {
+  font-family: NanumGothic, sans-serif;
+  margin-top: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  border: 0.1em solid #f1f3f4;
+  box-shadow: 0.1em 0.1em 0.1em;
+}
+
+.member-box-title {
+  font-size: 1.2em;
+}
+
+.member-box-email, .member-box-password {
+  width: 20em;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: 0.1em solid grey;
+  background-color: #f3f1ff;
+}
+
+.member-box-submit-btn-1, .member-box-submit-btn-2 {
+  font-family: NanumGothic, sans-serif;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  width: 11em;
+}
+
+.member-box-submit-btn-1 {
+  color: white;
+  background-color: #6c27b3;
+  border: 0.1em solid white;
+}
+
+.member-box-submit-btn-2 {
+  color: #6c27b3;
+  background-color: white;
+  border: 0.1em solid #6c27b3;
+}
+
+.member-box-submit-btn-1:hover, .member-box-submit-btn-2:hover {
+  cursor: pointer;
+  position: relative;
+  top: 0.1em;
+}
+
+.board-all-list {
+  font-family: NanumGothic, sans-serif;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75em;
+  height: 40em;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  border: 0.1em solid #f1f3f4;
+  box-shadow: 0.1em 0.1em 0.1em;
+  display: flex;
+}
+
+@media only screen and (max-width: 1000px) {
+  .board-all-list {
+    width: 95%;
+    height: 60em;
+    display: block;
+  }
+}
+
+.board-active-list, .board-closed-list {
+  width: 50%;
+  height: 92%;
+}
+
+.board-list-title, .board-list {
+  margin-right: auto;
+  margin-left: auto;
+  width: 95%;
+}
+
+.board-list-title {
+  text-align: left;
+  font-size: 1.2em;
+  cursor: default;
+}
+
+.board-list-open-title {
+  color: #0969da;
+  font-size: 0.8em;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+}
+
+.board-list-open-box {
+  cursor: text;
+  border: 0.1em solid lightgrey;
+  background-color: inherit;
+}
+
+.board-list {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 1em;
+  border: 0.1em solid #f3f1ff;
+  background-color: #f3f1ff;
+}
+
+.board-list-elements {
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.board-list-elements table {
+  width: inherit;
+  text-align: left;
+}
+
+.board-list-elements .board-list-element-title {
+  padding-left: 2em;
+  width: 70%;
+}
+
+.board-list-elements .board-list-element-date {
+  width: 30%;
+}
+
+.board-list-element-title {
+  color: #0969da;
+  cursor: pointer;
+}
+
+.http-error {
+  margin-top: 6em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.http-error-icon {
+  margin-right: 4em;
+}
+
+.http-error-icon img {
+  width: 20em;
+  border-radius: 25% 25%;
+}
+
+.http-error-status {
+  display: inline-block;
+  font-size: 4em;
+  font-family: NanumGothic, sans-serif;
+}
+
+.http-error-status-code {
+  color: #6c27b3;
+}
+
+.http-error-details {
+  font-size: 0.4em;
+  text-align: center;
+}
+
+.footer {
+  cursor: default;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5em;
+  background-color: #282a35;
+  color: #dddddd;
+}
+
+.footer-info {
+  padding-top: 1.1em;
+  padding-left: 2em;
+  font-weight: bold;
+}
+
+.footer-info-powered-by {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.footer-info-language-link {
+  cursor: pointer;
+  margin-left: 0.5em;
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-info-language-link:hover {
+  color: #ffffff;
+}
+
+.footer-info-language-icon {
+  margin-left: 0.5em;
+  width: 1.5em;
+}

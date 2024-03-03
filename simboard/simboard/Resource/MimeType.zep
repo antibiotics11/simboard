@@ -1,0 +1,83 @@
+namespace SimBoard\Resource;
+
+class MimeType {
+
+	const _AAC    = "audio/aac";
+	const _ABW    = "application/x-abiword";
+	const _ARC    = "application/x-freearc";
+	const _AVIF   = "image/avif";
+	const _AVI    = "video/x-msvideo";
+	const _AZW    = "application/vnd.amazon.ebook";
+	const _BIN    = "application/octet-stream";
+	const _BMP    = "image/bmp";
+	const _BZ     = "application/x-bzip";
+	const _BZ2    = "application/x-bzip2";
+	const _CDA    = "application/x-cdf";
+	const _CSH    = "application/x-csh";
+	const _CSS    = "text/css";
+	const _CSV    = "text/csv";
+	const _DOC    = "application/msword";
+	const _DOCX   = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+	const _EOT    = "application/vnd.ms-fontobject";
+	const _EPUB   = "application/epub+zip";
+	const _GZ     = "application/gzip";
+	const _GIF    = "image/gif";
+	const _HTM    = "text/html ";
+	const _HTML   = "text/html";
+	const _ICO    = "image/vnd.microsoft.icon";
+	const _ICS    = "text/calendar";
+	const _JAR    = "application/java-archive";
+	const _JPG    = "image/jpeg";
+	const _JPEG   = "image/jpeg ";
+	const _JS     = "text/javascript";
+	const _JSON   = "application/json";
+	const _JSONLD = "application/ld+json";
+	const _MID    = "audio/midi";
+	const _MIDI   = "audio/x-midi";
+	const _MJS    = "text/javascript ";
+	const _MP3    = "audio/mpeg";
+	const _MP4    = "video/mp4";
+	const _MPEG   = "video/mpeg";
+	const _MPKG   = "application/vnd.apple.installer+xml";
+	const _ODP    = "application/vnd.oasis.opendocument.presentation";
+	const _ODS    = "application/vnd.oasis.opendocument.spreadsheet";
+	const _ODT    = "application/vnd.oasis.opendocument.text";
+	const _OGA    = "audio/ogg";
+	const _OGV    = "video/ogg";
+	const _OGX    = "application/ogg";
+	const _OPUS   = "audio/opus";
+	const _OTF    = "font/otf";
+	const _PNG    = "image/png";
+	const _PDF    = "application/pdf";
+	const _PPT    = "application/vnd.ms-powerpoint";
+	const _PPTX   = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
+	const _RAR    = "application/vnd.rar";
+	const _RTF    = "application/rtf";
+	const _SH     = "application/x-sh";
+	const _SVG    = "image/svg+xml";
+	const _TIF    = "image/tiff ";
+	const _TAR    = "application/x-tar";
+	const _TIFF   = "image/tiff";
+	const _TS     = "video/mp2t";
+	const _TTF    = "font/ttf";
+	const _TXT    = "text/plain";
+	const _VSD    = "application/vnd.visio";
+	const _WAV    = "audio/wav";
+	const _WEBA   = "audio/webm ";
+	const _WEBM   = "audio/webm";
+	const _WEBP   = "image/webp";
+	const _WOFF   = "font/woff";
+	const _WOFF2  = "font/woff2";
+	const _XHTML  = "application/xhtml+xml";
+	const _XLS    = "application/vnd.ms-excel";
+	const _XLSX   = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+	const _XML    = "application/xml";
+	const _XUL    = "application/vnd.mozilla.xul+xml";
+	const _ZIP    = "application/zip";
+	const _3GP    = "video/3gpp";
+	const _3G2    = "video/2gpp2";
+	const _7Z     = "application/x-7z-compressed";
+
+  private function __construct() {}
+
+}

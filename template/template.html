@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang = "ko-KR">
+<head>
+  <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+  <title>SimBoard</title>
+  <meta name="title" property="og:title" content="SimBoard" />
+  <meta name="description" property="og:description" content="간단한 게시판" />
+  <link rel="stylesheet" href="/static/css/font.css" type="text/css" />
+  <link rel="stylesheet" href="/static/css/template.css" type="text/css" />
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+  <script type="text/javascript" src="/static/js/Member.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <span class="header-logo">
+      <img class="header-logo-icon" src="/static/image/site_logo.png" alt="Site Logo" />
+      <span class="header-logo-title">
+        <a class="header-logo-title-link" href="/" target="_self">
+          <span style="color:#6c27b3">Sim</span>
+          Board
+        </a>
+      </span>
+    </span>
+    <span class="header-menu">
+      <span class="header-menu-search">
+        <input id="header-menu-search-box" class="header-menu-search-box"
+               type="text" minlength="1" maxlength="100" placeholder="검색어를 입력하세요..."
+        />
+        <input class="header-menu-search-icon" type="button" value="검색" onclick="search()">
+        <script type="text/javascript">
+          function search() {
+            let searchWord = document.getElementById("header-menu-search-box").value;
+            if (searchWord.length > 0 && searchWord.length <= 100) {
+              window.location.href = "/search/" + encodeURI(searchWord);
+              return;
+            }
+            window.alert("검색어는 1-100 글자 사이로 입력해주세요.");
+          }
+        </script>
+      </span>
+      <span class="header-menu-member" onclick="location.href='/profile'">
+        <img class="header-menu-member-icon" src="/static/image/member.png" alt="Member Icon" />
+      </span>
+    </span>
+  </header>
+
+  <div class="content-wrapper">
+    <div class="content">
+      ${main_content}
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-info">
+      <span class="footer-info-powered-by">
+        Powered by
+        <a class="footer-info-language-link" href="https://zephir-lang.com" target="_blank">Zephir v0.17.0</a>
+        <img class="footer-info-language-icon" src="/static/image/zephir_logo.png" alt="Zephir Logo" />
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>

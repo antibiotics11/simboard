@@ -1,0 +1,27 @@
+<div class="member-box">
+  <form method="POST" class="member-signup" action="/signup">
+    <h2 class="member-box-title"> 회원가입 </h2>
+    <input id="member-signup-name" class="member-box-email"
+           name="name" type="text" minlength="4" maxlength="300"
+           placeholder="닉네임"
+           required
+    />
+    <br /><br />
+    <input id="member-signup-email" class="member-box-email"
+           name="email" type="text" minlength="4" maxlength="300"
+           placeholder="이메일 주소"
+           oninput="Member.verifyEmail(this)" required
+    />
+    <br /><br />
+    <input id="member-signup-password" class="member-box-password"
+           name="password" type="password" minlength="4" maxlength="64"
+           placeholder="패스워드"
+           oninput="Member.verifyPassword(this)" required
+    />
+    <br /><br />
+    <input type="submit" class="member-box-submit-btn-1" value="회원가입"/>
+    <input type="button" class="member-box-submit-btn-2" value="로그인"
+           onclick="window.location.href='/signin'"
+    />
+  </form>
+</div>

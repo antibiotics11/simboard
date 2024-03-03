@@ -1,0 +1,13 @@
+<script type="text/javascript">
+
+  let authenticated = ${signin_result};
+  let redirectTo    = "/board";
+
+  if (!authenticated) {
+    window.alert("패스워드가 일치하지 않습니다.");
+    redirectTo = "/signin";
+  }
+
+  window.location.href = redirectTo;
+
+</script>

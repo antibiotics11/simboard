@@ -1,0 +1,15 @@
+<script type="text/javascript">
+
+  let accountCreated = ${signup_result};
+  let popupMessage   = "오류: 회원가입할 수 없습니다.";
+  let redirectTo     = "/signup";
+
+  if (accountCreated) {
+    popupMessage = "회원가입이 완료되었습니다. 다시 로그인해주세요.";
+    redirectTo   = "/signin";
+  }
+
+  window.alert(popupMessage);
+  window.location.href = redirectTo;
+
+</script>
