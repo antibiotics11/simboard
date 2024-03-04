@@ -48,4 +48,5 @@ $service = new SimBoard\SimBoardService([
 ## 스크린샷
 
 ![simboard-1](https://github.com/antibiotics11/simboard/assets/75349747/a30b1c1c-d2a6-4da4-8266-b976864fb653)
+![simboard-3](https://github.com/antibiotics11/simboard/assets/75349747/b6cf9b10-016f-4106-ad6c-3ddcb156b30a)
 ![simboard-2](https://github.com/antibiotics11/simboard/assets/75349747/14b28abe-31ab-4588-89ac-b8a812191f81)
