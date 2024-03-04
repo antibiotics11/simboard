@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.php  linguist-vendored=false
+*.zep  linguist-vendored=false
+*.html linguist-vendored=false
+*.js   linguist-vendored
+*.css  linguist-vendored
