@@ -134,7 +134,7 @@ body {
   top: 0.1em;
 }
 
-.board-all-list {
+.board-all-list, .board-articles {
   font-family: NanumGothic, sans-serif;
   margin-top: 3em;
   margin-left: auto;
@@ -145,11 +145,18 @@ body {
   padding-bottom: 1.5em;
   border: 0.1em solid #f1f3f4;
   box-shadow: 0.1em 0.1em 0.1em;
+}
+
+.board-all-list {
   display: flex;
 }
 
+.board-articles {
+  display: block;
+}
+
 @media only screen and (max-width: 1000px) {
-  .board-all-list {
+  .board-all-list, .board-articles {
     width: 95%;
     height: 60em;
     display: block;
@@ -221,6 +228,129 @@ body {
   cursor: pointer;
 }
 
+.board-details {
+  text-align: left;
+  cursor: default;
+}
+
+.board-details, .board-articles-list {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+
+.board-details table {
+  width: 100%;
+}
+
+.board-title {
+  font-size: 1.5em;
+  overflow: hidden;
+}
+
+.board-title .board-articles-count {
+  font-size: 0.8em;
+}
+
+.board-details-title {
+  font-size: 0.9em;
+}
+
+.board-details-admin, .board-details-created-at {
+  font-size: 1em;
+}
+
+.board-details-admin-name {
+  color: #6c27b3;
+}
+
+.board-close {
+  font-size: 0.9em;
+  color: red;
+  cursor: pointer;
+}
+
+.board-articles-list {
+  background-color: #f3f1ff;
+  height: 87%;
+  overflow-y: scroll;
+}
+
+.board-articles-empty-board {
+  height: 9em;
+  padding-top: 5em;
+  font-size: 1.5em;
+  color: grey;
+  cursor: default;
+}
+
+.board-article {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  border-top: 0.1em solid lightgrey;
+}
+
+.board-article-details {
+  width: 100%;
+  font-size: 1em;
+}
+
+.board-article-content {
+  font-size: 1.1em;
+  color: black;
+}
+
+.board-article-index {
+  color: black;
+}
+
+.board-article-author {
+  color: #6c27b3;
+  font-weight: bold;
+}
+
+.board-article-written-at {
+  font-size: 0.9em;
+  color: grey;
+}
+
+.board-article-details {
+  margin-top: 0.8em;
+}
+
+.board-article-content {
+  margin-top: 0.4em;
+  margin-bottom: 0.8em;
+}
+
+.board-article-write {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.board-article-write-field {
+  width: 99.5%;
+  font-size: 1em;
+  line-height: 2em;
+  position: relative;
+  border: 0.1em solid #a9a9a9;
+}
+
+.board-article-write-submit {
+  width: 5em;
+  height: 2em;
+  font-size: 1em;
+  margin-top: 0.3em;
+  margin-left: 0.6em;
+  background-color: white;
+  border: 0.1em solid #a9a9a9;
+  cursor: pointer;
+  float: right;
+}
+
 .http-error {
   margin-top: 6em;
   margin-left: auto;
@@ -287,4 +417,11 @@ body {
 .footer-info-language-icon {
   margin-left: 0.5em;
   width: 1.5em;
+}
+
+.text-limit-width {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
 }

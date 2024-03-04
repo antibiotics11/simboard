@@ -1,0 +1,85 @@
+<div class="board-articles">
+  <div class="board-details">
+    <table>
+      <tr style="width:70%">
+        <td>
+          <div class="board-title">${board_title}
+            <span class="board-articles-count">(${articles_count})</span>
+          </div>
+        </td>
+        <td style="width:10%;text-align:right">
+          <span class="board-details-title">개설일:</span>
+        </td>
+        <td style="width:20%;">
+          <div class="board-details-created-at">${created_at}</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="board-manager" id="board-manager" style="display:none">
+            <form method="POST" action="/close/${board_id}" style="display:none">
+              <input type="submit" id="board-close" value="" />
+            </form>
+            <span id="board-close-btn" class="board-close" onclick="closeBoard()">대화방 닫기</span>
+          </div>
+        </td>
+        <td style="text-align:right">
+          <span class="board-details-title">관리자:</span>
+        </td>
+        <td>
+          <div class="board-details-admin">
+            <span class="board-details-admin-name">${admin_name}</span>
+            <span class="board-details-admin-email">(${admin_email})</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <script type="text/javascript">
+      if (${is_board_admin}) {
+        document.getElementById("board-manager").style.display="inline";
+      }
+      function closeBoard() {
+        if (confirm("대화방을 닫으면 더 이상 글을 작성할 수 없습니다.\r\n정말 닫으시겠습니까?")) {
+          document.getElementById("board-close").click();
+        }
+      }
+    </script>
+  </div>
+  <br />
+  <div class="board-articles-list">
+    <div style="margin-top:2em;padding-bottom:2em;">
+      ${articles}
+      <div id ="board-articles-empty-board" class="board-articles-empty-board" style="display:none;">
+        작성된 글이 없습니다.
+      </div>
+      <div class="board-article-write">
+        <form method="POST" class="board-article-write-form" action="/write/${board_id}">
+          <textarea name="content" id="board-article-write-field" class="board-article-write-field"
+                 placeholder="" minlength="1" maxlength="65535" rows="3"
+          required></textarea>
+          <br />
+          <input id="board-article-write-submit" class="board-article-write-submit"
+                 type="submit" value="등록"
+          />
+          <input class="board-article-write-submit" onclick="document.location.reload();"
+                 type="button" value="새로고침"
+          />
+        </form>
+        <script type="text/javascript">
+          if (!${is_logged_in} || ${is_closed_board}) {
+            document.getElementById("board-article-write-field").disabled    = true;
+            document.getElementById("board-article-write-field").placeholder = "작성하려면 로그인해주세요.";
+            document.getElementById("board-article-write-submit").disabled   = true;
+            if (${is_closed_board}) {
+              document.getElementById("board-article-write-field").placeholder = "작성할 수 없습니다.";
+            }
+          }
+          if (${is_empty_board}) {
+            document.getElementById("board-articles-empty-board").style.display = "block";
+          }
+        </script>
+      </div>
+      <br /><br />
+    </div>
+  </div>
+</div>

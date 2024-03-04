@@ -85,20 +85,21 @@ final class SimBoardService {
    * @return void
    */
   private function defineRoutes() -> void {
-    this->router->get("/signin",         this->controllers["member"]);   // 로그인 페이지
-    this->router->post("/signin",        this->controllers["member"]);   // 로그인 처리
-    this->router->get("/signup",         this->controllers["member"]);   // 회원가입 페이지
-    this->router->post("/signup",        this->controllers["member"]);   // 회원가입 처리
-    this->router->get("/profile",        this->controllers["member"]);   // 프로필 조회
-    this->router->get("/signout",        this->controllers["member"]);   // 로그아웃 처리
-    this->router->get("/withdraw",       this->controllers["member"]);   // 회원탈퇴 처리
-    this->router->get("/(board)",        this->controllers["board"]);    // 게시판 목록 페이지
-    this->router->post("/(open)",        this->controllers["board"]);    // 게시판 개설 처리
-    this->router->post("/(close)/(\d+)", this->controllers["board"]);    // 게시판 폐쇄 처리
-    this->router->get("/(board)/(\d+)",  this->controllers["board"]);    // 포스트 목록 페이지
-    this->router->post("/(board)/(\d+)", this->controllers["board"]);    // 포스트 작성 처리
-    this->router->get("/static/(.*)",    this->controllers["static"]);   // 정적 리소스 처리
-    this->router->all("(.*)",            this->controllers["default"]);  // 기타 요청 처리
+    this->router->get("/signin",          this->controllers["member"]);   // 로그인 페이지
+    this->router->post("/signin",         this->controllers["member"]);   // 로그인 처리
+    this->router->get("/signup",          this->controllers["member"]);   // 회원가입 페이지
+    this->router->post("/signup",         this->controllers["member"]);   // 회원가입 처리
+    this->router->get("/profile",         this->controllers["member"]);   // 프로필 조회
+    this->router->get("/signout",         this->controllers["member"]);   // 로그아웃 처리
+    this->router->get("/withdraw",        this->controllers["member"]);   // 회원탈퇴 처리
+    this->router->get("/(board)",         this->controllers["board"]);    // 게시판 목록 페이지
+    this->router->post("/(open)",         this->controllers["board"]);    // 게시판 개설 처리
+    this->router->post("/(close)/(\d+)",  this->controllers["board"]);    // 게시판 폐쇄 처리
+    this->router->get("/(board)/(\d+)",   this->controllers["board"]);    // 포스트 목록 페이지
+    this->router->post("/(write)/(\d+)",  this->controllers["board"]);    // 포스트 작성 처리
+    this->router->post("/(delete)/(\d+)", this->controllers["board"]);    // 포스트 삭제 처리
+    this->router->get("/static/(.*)",     this->controllers["static"]);   // 정적 리소스 처리
+    this->router->all("(.*)",             this->controllers["default"]);  // 기타 요청 처리
   }
 
   /**

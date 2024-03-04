@@ -48,7 +48,7 @@ final class BoardModel extends Model {
   /**
    * 폐쇄된 게시판 목록을 가져온다.
    *
-   * @return
+   * @return mixed[]
    */
   public function getClosedBoards() -> array {
     return this->pdoConnector->query(
@@ -59,6 +59,8 @@ final class BoardModel extends Model {
 
   /**
    * 활성 게시판 목록을 가져온다.
+   *
+   * @return mixed[]
    */
   public function getActiveBoards() -> array {
     return this->pdoConnector->query(
@@ -67,6 +69,12 @@ final class BoardModel extends Model {
     );
   }
 
+  /**
+   * 게시판 정보를 가져온다.
+   *
+   * @param string boardId 게시판 ID.
+   * @return mixed[]|false
+   */
   public function getBoardById(const string! boardId) -> array|bool {
 
     string query  = "SELECT * FROM board WHERE board_id=:board";
@@ -82,6 +90,33 @@ final class BoardModel extends Model {
 
   }
 
+  /**
+   * 게시판 관리자 정보를 가져온다.
+   *
+   * @param string boardId 게시판 ID.
+   * @return mixed[]|false
+   */
+  public function getBoardAdminById(const string! boardId) -> array|bool {
+
+    string query  = "SELECT * FROM member WHERE email=(SELECT admin_email FROM board WHERE board_id=:board)";
+    array  params = [ ":board" : boardId ];
+
+    var queryResult = this->pdoConnector->query(query, params);
+
+    if (queryResult !== false && isset(queryResult[0])) {
+      return queryResult[0];
+    }
+
+    return false;
+
+  }
+
+  /**
+   * 특정 관리자가 개설한 게시판 목록을 가져온다.
+   *
+   * @param string adminEmail 관리자 이메일.
+   * @return mixed[]
+   */
   public function getBoardsByAdminEmail(const string! adminEmail) -> array {
 
     string query  = "SELECT * FROM board WHERE admin_email=:email ORDER BY board_id DESC";
@@ -113,6 +148,13 @@ final class BoardModel extends Model {
 
   }
 
+  /**
+   * 게시판 관리자인지 확인한다.
+   *
+   * @param string boardId 게시판 ID.
+   * @param string adminEmail 관리자 이메일.
+   * @return bool
+   */
   public function isBoardAdmin(const string! boardId, const string! adminEmail) -> bool {
 
     string query  = "SELECT admin_email FROM board WHERE board_id=:board";
@@ -128,13 +170,12 @@ final class BoardModel extends Model {
 
   }
 
-
   /**
    * 게시글을 작성한다.
    *
-   * @param int boardId 게시글이 작성된 게시판 ID.
+   * @param int boardId 게시판 ID.
    * @param string content 게시글 본문.
-   * @param string authorEmail 게시글 작성자 이메일.
+   * @param string authorEmail 작성자 이메일.
    * @return bool
    */
   public function write(const int! boardId, const string! content, const string! authorEmail) -> bool {
@@ -166,7 +207,12 @@ final class BoardModel extends Model {
 
   public function getArticlesByBoardId(const int! boardId) -> array {
 
-    string query  = "SELECT * FROM article WHERE board_id=:board ORDER BY article_id ASC";
+    string query  = "
+      SELECT article.*, name AS author_name FROM article
+      LEFT JOIN member ON article.author_email=member.email
+      WHERE board_id=:board
+      ORDER BY article_id ASC
+      ";
     array  params = [ ":board" : boardId ];
 
     return this->pdoConnector->query(query, params);

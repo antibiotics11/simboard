@@ -34,7 +34,7 @@ final class BoardController extends Controller {
   }
 
   // GET 요청을 처리한다.
-  public function handleGet(const string! uri, const array! params, const int! boardId) -> void {
+  private function handleGet(const string! uri, const array! params, const int! boardId) -> void {
 
     if (uri === "board") {
       if (boardId) {
@@ -49,7 +49,7 @@ final class BoardController extends Controller {
   }
 
   // 전체 게시판 목록을 조회한다.
-  public function showList(const array! params) -> void {
+  private function showList(const array! params) -> void {
 
     array activeBoards = (array)this->model->getActiveBoards();
     array closedBoards = (array)this->model->getClosedBoards();
@@ -67,7 +67,7 @@ final class BoardController extends Controller {
   }
 
   // 게시판 글 목록을 조회한다.
-  public function showBoard(const array! params, const int! boardId) -> void {
+  private function showBoard(const array! params, const int! boardId) -> void {
 
     var userEmail = Session::get("email"); // string|null
     if (userEmail === null) {
@@ -75,6 +75,8 @@ final class BoardController extends Controller {
     }
 
     array  articles      = (array)this->model->getArticlesByBoardId(boardId);
+    array  boardDetails  = (array)this->model->getBoardById(boardId);
+    array  adminDetails  = (array)this->model->getBoardAdminById(boardId);
     bool   isLoggedIn    = (bool)Session::has("email");
     bool   isBoardAdmin  = (bool)this->model->isBoardAdmin(boardId, userEmail);
     bool   isClosedBoard = (bool)this->model->isBoardClosed(boardId);
@@ -83,6 +85,8 @@ final class BoardController extends Controller {
       "page" : "board",
       "data" : [
         "articles"        : articles,
+        "board_details"   : boardDetails,
+        "admin_details"   : adminDetails,
         "is_logged_in"    : isLoggedIn,
         "is_board_admin"  : isBoardAdmin,
         "is_closed_board" : isClosedBoard,
@@ -93,7 +97,7 @@ final class BoardController extends Controller {
   }
 
   // POST 요청을 처리한다.
-  public function handlePost(const string! uri, const array! params, const int! boardId) -> void {
+  private function handlePost(const string! uri, const array! params, const int! boardId) -> void {
 
     if (Session::has("email")) {   // 모든 POST 요청은 로그인한 사용자만 허용.
       switch (uri) {
@@ -110,7 +114,7 @@ final class BoardController extends Controller {
   }
 
   // 게시판 개설을 처리한다.
-  public function processOpen(const array! params) -> void {
+  private function processOpen(const array! params) -> void {
 
     string boardTitle = (string)params["title"];
     string userEmail  = (string)Session::get("email");
@@ -126,7 +130,7 @@ final class BoardController extends Controller {
   }
 
   // 게시판 폐쇄를 처리한다.
-  public function processClose(const array! params, const int! boardId) -> void {
+  private function processClose(const array! params, const int! boardId) -> void {
 
     string userEmail = (string)Session::get("email");
 
@@ -144,7 +148,7 @@ final class BoardController extends Controller {
   }
 
   // 글 작성을 처리한다.
-  public function processWrite(const array! params, const int! boardId) -> void {
+  private function processWrite(const array! params, const int! boardId) -> void {
 
     string content   = (string)params["content"];
     string userEmail = (string)Session::get("email");
@@ -162,7 +166,7 @@ final class BoardController extends Controller {
 
   }
 
-  public function processDelete(const array! params, const int! articleId) -> void {
+  private function processDelete(const array! params, const int! articleId) -> void {
 
     /**
      * 구현 예정

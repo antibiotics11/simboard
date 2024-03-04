@@ -1,4 +1,8 @@
 <tr>
-  <td class="board-list-element-title" onclick="location.href='/board/${board_id}'">${board_title}</td>
+  <td class="board-list-element-title" onclick="location.href='/board/${board_id}'">
+    <div style="width:inherit">
+      <div class="text-limit-width">${board_title}</div>
+    </div>
+  </td>
   <td class="board-list-element-date">${created_at}</td>
 </tr>
