@@ -1,7 +1,6 @@
 # simboard
 
-A simple web board developed purely with <a href="https://github.com/zephir-lang/zephir">Zephir</a>, <br />
-showcasing a minimal example of C.R.U.D functionality.
+A simple web board developed purely with <a href="https://github.com/zephir-lang/zephir">Zephir</a>, showcasing a minimal example of C.R.U.D functionality.
 
 ## Project Structure
 
@@ -45,6 +44,13 @@ $service = new SimBoard\SimBoardService([
   ]
 ]);
 ```
+
+
+## Notes
+
+This project also explored whether Zephir could meaningfully improve the performance of a traditional synchronous PHP web application.
+However, in PHP 8, even simple function calls showed noticeable overhead, leading to overall performance degradation.
+While PHP 7 might offer some gains, in PHP 8 and above, Zephir may introduce more cost than benefit in this context.
 
 ## Screenshots
 
